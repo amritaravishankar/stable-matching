@@ -17,7 +17,7 @@ NOTE: I learnt the algorithm with the men and women being considered as two diff
 For simplicity of implementation, I have continued with the same. However, I support diversity of all kinds <3
 
 ### Psuedocode:
-
+```
 algorithm stable_matching is
     Initialize m ∈ M and w ∈ W to free
     while ∃ free man m who has a woman w to propose to do
@@ -31,5 +31,6 @@ algorithm stable_matching is
             (m, w) become engaged
         end if
     repeat
+```
 
 Source: Wikipedia
