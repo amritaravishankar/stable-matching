@@ -21,21 +21,22 @@
 
 import collections
 
-# rankings of women preferred by each man
-women_rankings = {
-    'ryan': ['lizzy', 'sarah', 'zoey', 'daniella'],
-    'josh': ['sarah', 'lizzy', 'daniella', 'zoey'],
-    'blake': ['sarah', 'daniella', 'zoey', 'lizzy'],
-    'connor': ['lizzy', 'sarah', 'zoey', 'daniella']
-}
 
-# rankings of men preferred by each woman
-men_rankings = {
-    'lizzy': ['ryan', 'blake', 'josh', 'connor'],
-    'sarah': ['ryan', 'blake', 'connor', 'josh'],
-    'zoey': ['connor', 'josh', 'ryan', 'blake'],
-    'daniella': ['ryan', 'josh', 'connor', 'blake']
-}
+def print_description():
+    print('''
+    GALE-SHAPLEY ALGORITHM - STABLE MATCHING PROBLEM
+    
+    The stable matching algorithm seeks to solve the problem of finding a stable match 
+    between two sets of equal size given a list of preferences for each element. 
+    
+    We can define "matching" and "stable" by the following definitions.
+    Matching: Mapping from the elements of one set to the elements of another set
+    Stable: No element A of the first set that prefers an element B of the second set over 
+    its current partner such that element B prefers element A over its current partner.'''
+    )
+    print()
+
+
 
 # keep track of matches that have been temporarily set up
 tentative_matches = []
@@ -43,15 +44,54 @@ tentative_matches = []
 # men that need to still be matched successfully
 available_men = []
 
+men_preferences = collections.defaultdict(list)     # rankings of women preferred by each man
+women_preferences = collections.defaultdict(list)   # rankings of men preferred by each woman
+
+
+def take_user_input():
+    n = int(input("Please input the desired number of members in each set: "))
+    print()
+    men = input(f"Please enter names of {n} men, separated by commas and no spaces eg. Mac,John: ")
+    names_of_men = men.split(",")
+    if len(names_of_men) != n:
+        print("Exiting since number of men differ from initial input")
+        exit()
+
+    women = input(f"Please enter names of  {n} women, separated by commas and no spaces eg. Olivia,Tina: ")
+    names_of_women = women.split(",")
+    if len(names_of_women) != n:
+        print("Exiting since number of women differ from initial input")
+        exit()
+
+    print()
+    print("For each man, insert his ranking preference of the above women, separated by commas.")
+    for man in names_of_men:
+        print("Man: ", man)
+        preferences = input("Preference ranking: ")
+        men_preferences[man] = preferences.split(",")
+        print()
+
+    print()
+    print("Great! We're done with men's preferences")
+    print()
+
+    print("For each woman, insert her ranking preference of the above men, separated by commas.")
+    for woman in names_of_women:
+        print("Woman: ", woman)
+        preferences = input("Preference ranking: ")
+        women_preferences[woman] = preferences.split(",")
+        print()
+    print()
+
 
 def available_men_setup():
-    for man, women in women_rankings.items():
+    for man, women in men_preferences.items():
         available_men.append(man)
 
 
 def start_matching(man):
     print("Currently checking for : ", man)
-    for woman in women_rankings[man]:
+    for woman in men_preferences[man]:
         existing_match = [match for match in tentative_matches if woman in match]
 
         # if the woman is not a part of any match yet - she is single
@@ -68,10 +108,10 @@ def start_matching(man):
             print(woman, " is already matched with ", matched_man)
 
             # check rankings of matched man vs potential man
-            matched_man_index = men_rankings[woman].index(matched_man)
-            potential_man_index = men_rankings[woman].index(man)
+            matched_man_index = women_preferences[woman].index(matched_man)
+            potential_man_index = women_preferences[woman].index(man)
 
-            if matched_man_index > potential_man_index:
+            if matched_man_index < potential_man_index:
                 print(woman, " is already happy with her match - ", matched_man, ", no rematching will take place...")
 
             else:
@@ -91,13 +131,18 @@ def stable_matching():
     while len(available_men) > 0:
         for man in available_men:
             start_matching(man)
-    print("The matching has been succesfully completed")
+    print("The matching has been successfully completed!")
 
 
 def main():
+    print_description()
+    take_user_input()
     available_men_setup()
     print("The available men currently are ", available_men)
+    print()
+    print("Calculation Logs")
     stable_matching()
+    print()
     print("The matches are: ")
     print(tentative_matches)
 
