@@ -32,10 +32,20 @@ algorithm stable_matching is
         end if
     repeat
 ```
+## To Run
+```
+python main.py
+```
+
+## Usage
+Users can input:
+1. Number of members that they wish to have in each set
+2. Names of members within each set
+3. Preference ranking for members within each set
+
+The interface provides a stable match as an output
 
 ## Interface
-Taking inputs from the user
-<img src="https://github.com/amritaravishankar/stable-matching/blob/master/Input.png" width="1000">
 
 Calculation logs after each member's preferences have been input
 <img src="https://github.com/amritaravishankar/stable-matching/blob/master/CLI%20.png" width="500">
