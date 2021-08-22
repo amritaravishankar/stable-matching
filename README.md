@@ -33,7 +33,7 @@ algorithm stable_matching is
     repeat
 ```
 
-## UI
-<img src="" width="400">
+## Interface
+<img src="https://github.com/amritaravishankar/stable-matching/blob/master/CLI%20.png" width="400">
 
 Source: Wikipedia
