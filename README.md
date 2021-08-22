@@ -50,4 +50,4 @@ The interface provides a stable match as an output
 Calculation logs after each member's preferences have been input
 <img src="https://github.com/amritaravishankar/stable-matching/blob/master/CLI%20.png" width="500">
 
-Source: Wikipedia
+## Content Source: Wikipedia
