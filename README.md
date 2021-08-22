@@ -1,5 +1,5 @@
-# Stable-Matching Problem
-👫🏽 A CLI Python tool to implement the famous Gale-Shapley Algorithm to solve the Stable Matching problem.
+# 👫🏽 Stable-Matching Problem
+A CLI Python tool to implement the famous Gale-Shapley Algorithm to solve the Stable Matching problem.
 
 ## The Problem:
 In mathematics, economics, and computer science, the stable matching algorithm seeks to solve the problem of finding a stable match between two sets of equal size given a list of preferences for each element.
@@ -32,5 +32,8 @@ algorithm stable_matching is
         end if
     repeat
 ```
+
+## UI
+<img src="" width="400">
 
 Source: Wikipedia
