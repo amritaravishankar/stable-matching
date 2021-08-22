@@ -35,9 +35,9 @@ algorithm stable_matching is
 
 ## Interface
 Taking inputs from the user
-<img src="https://github.com/amritaravishankar/stable-matching/blob/master/Input.png" width="700">
+<img src="https://github.com/amritaravishankar/stable-matching/blob/master/Input.png" width="1000">
 
 Calculation logs after each member's preferences have been input
-<img src="https://github.com/amritaravishankar/stable-matching/blob/master/CLI%20.png" width="700">
+<img src="https://github.com/amritaravishankar/stable-matching/blob/master/CLI%20.png" width="500">
 
 Source: Wikipedia
