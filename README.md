@@ -34,6 +34,10 @@ algorithm stable_matching is
 ```
 
 ## Interface
-<img src="https://github.com/amritaravishankar/stable-matching/blob/master/CLI%20.png" width="400">
+Taking inputs from the user
+<img src="" width="">
+
+Calculation logs after each member's preferences have been input
+<img src="https://github.com/amritaravishankar/stable-matching/blob/master/CLI%20.png" width="700">
 
 Source: Wikipedia
